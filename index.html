@@ -1,0 +1,14 @@
+<button onclick="startWorker()">Test for worker</button>
+<script>
+	function startWorker(){
+	    	worker.postMessage({'test':'Testing for data'});
+	}
+	let worker = new Worker('webWorker.js');
+	worker.addEventListener('message', function(e){
+		console.log(e.data)
+	}, false);
+	
+	worker.addEventListener('test2',  function(e){
+			console.log(e.data);
+	}, false);
+</script>
